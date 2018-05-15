@@ -20,8 +20,8 @@ class AlignedDataset(BaseDataset):
         AB = Image.open(AB_path).convert('RGB')
         w, h = AB.size
         w2 = int(w / 2)
-        A = AB.crop((0, 0, w2, h)).resize((self.opt.loadSize, self.opt.loadSize), Image.BICUBIC)
-        B = AB.crop((w2, 0, w, h)).resize((self.opt.loadSize, self.opt.loadSize), Image.BICUBIC)
+        # A = AB.crop((0, 0, w2, h)).resize((self.opt.loadSize, self.opt.loadSize), Image.BICUBIC)
+        # B = AB.crop((w2, 0, w, h)).resize((self.opt.loadSize, self.opt.loadSize), Image.BICUBIC)
         A = transforms.ToTensor()(A)
         B = transforms.ToTensor()(B)
         w_offset = random.randint(0, max(0, self.opt.loadSize - self.opt.fineSize - 1))
